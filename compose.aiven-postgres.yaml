@@ -1,0 +1,13 @@
+# Optional managed PostgreSQL integration. Use this instead of compose.aiven.yaml.
+services:
+  streamlit:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - streamlit-postgres
+    environment:
+      DATABASE_URL: postgresql://USER:PASSWORD@streamlit-postgres:5432/defaultdb
+      # Set APP_PASSWORD and PG_CA_CERT_BASE64 in Runtime before deployment.
+  streamlit-postgres:
+    image: postgres:16

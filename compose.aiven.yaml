@@ -1,0 +1,7 @@
+# Sample-only starter: no database service required.
+services:
+  streamlit:
+    build: .
+    ports:
+      - "8080:8080"
+    # Set APP_PASSWORD as a secret in Runtime before deployment.
